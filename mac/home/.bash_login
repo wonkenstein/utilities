@@ -1,0 +1,1 @@
+export PATH="/usr/local/apache2/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:~/workspace/drush:$PATH"
