@@ -5,7 +5,7 @@ to be imported into crunch.co.uk accounting system
 First ever Ruby Script! Woo!
 
 Usage:
-ruby convert-statement.rb statements/2011-10.csv converted/converted.csv
+ruby convert-statement.rb statements/2011-10.csv > converted/converted.csv
 =end
 
 #arguments
