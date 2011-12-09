@@ -37,5 +37,5 @@ puts ['Date','Reference','Amount','Balance',].join(',')
 
 # sort the statement
 statement.keys.sort.each {| entry_date |
-  print statement[entry_date].join(',') + "\n"
+  puts statement[entry_date].join(',')
 }
