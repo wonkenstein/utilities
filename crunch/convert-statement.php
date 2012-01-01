@@ -8,6 +8,7 @@
  */
 
 $file = $argv[1];
+$total = $argv[2] ? $argv[2] : '';
 
 if (!file_exists($file)) {
   echo $file . ' does not exist' . "\n";
@@ -15,7 +16,6 @@ if (!file_exists($file)) {
 }
 
 $file_contents = file_get_contents($file);
-
 $file_contents = explode("\n", $file_contents);
 
 // remove the last line as it's not needed
@@ -26,23 +26,13 @@ $results = array();
 foreach ($file_contents as $line) {
 
   $line = explode(',', $line);
-
   // don't want the first column as text we don't need it
   array_shift($line);
-
-  // change date to
-  // according to docs http://www.php.net/manual/en/function.strtotime.php
-  // "Dates in the m/d/y or d-m-y formats are disambiguated by looking at the
-  // separator between the various components: if the separator is a slash (/),
-  // then the American m/d/y is assumed; whereas if the separator is a dash (-)
-  // or a dot (.), then the European d-m-y format is assumed.
-  $date = str_replace('/', '-', $line[0]);
-  $date = date('Y-m-d', strtotime($date));
-  $results[$date] = $line;
+  $results[] = $line;
 }
 
-// sort on the date
-ksort($results);
+// sort into order we want
+$results = array_reverse($results);
 
 $headers = array(
   'Date',
@@ -54,6 +44,14 @@ $headers = array(
 // output as csv
 echo implode(',', $headers), "\n";
 
-foreach ($results as $k => $v) {
-  echo implode(',', $v), "\n";
+foreach ($results as $i => $cells) {
+
+  // calculate the running totals
+  if ($total) {
+    if ($i) {
+      $total += $cells[2];
+    }
+    $cells[] = $total;
+  }
+  echo implode(',', $cells), "\n";
 }

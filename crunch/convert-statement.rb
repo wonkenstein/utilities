@@ -10,32 +10,39 @@ ruby convert-statement.rb statements/2011-10.csv > converted/converted.csv
 
 #arguments
 in_file = ARGV[0]
+total = ARGV[1].to_f
 
 # read the file in
 aFile = File.new(in_file)
 lines = aFile.readlines
 lines.pop # remove last line
 
-statement = Hash.new()
-lines.each {| line |
+statement = []
+lines.each_with_index {| line, i |
 
   line.chomp!
   cells = line.split(',')
   cells.shift # remove the first cell
 
-  # format the date
-  entry_date = cells[0].split('/')
-  entry_date = entry_date.reverse!
-  entry_date.join('-')
-
   #puts entry_date.join('-')
-  statement[entry_date.join('-')] = cells
+  statement.push(cells)
 }
+
+# get the order right
+statement.reverse!
 
 # header
 puts ['Date','Reference','Amount','Balance',].join(',')
 
 # sort the statement
-statement.keys.sort.each {| entry_date |
-  puts statement[entry_date].join(',')
+statement.each_with_index {| cells, i |
+  # Set the running total
+  if total
+    if i > 0
+      total += cells[2].to_f
+    end
+    cells.push(total.round(2));
+  end
+
+  puts cells.join(',')
 }
