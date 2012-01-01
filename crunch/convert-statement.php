@@ -17,17 +17,13 @@ if (!file_exists($file)) {
 
 $file_contents = file_get_contents($file);
 $file_contents = explode("\n", $file_contents);
+array_pop($file_contents); // remove the last line
 
-// remove the last line as it's not needed
-unset($file_contents[count($file_contents)-1]);
-
-// read each line and stuff into an array keyed on date
 $results = array();
 foreach ($file_contents as $line) {
 
   $line = explode(',', $line);
-  // don't want the first column as text we don't need it
-  array_shift($line);
+  array_shift($line); // Don't want first cell as rubbish
   $results[] = $line;
 }
 
@@ -45,7 +41,6 @@ $headers = array(
 echo implode(',', $headers), "\n";
 
 foreach ($results as $i => $cells) {
-
   // calculate the running totals
   if ($total) {
     if ($i) {

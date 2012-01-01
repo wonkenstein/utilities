@@ -18,23 +18,21 @@ lines = aFile.readlines
 lines.pop # remove last line
 
 statement = []
-lines.each_with_index {| line, i |
+lines.each {| line |
 
   line.chomp!
   cells = line.split(',')
   cells.shift # remove the first cell
 
-  #puts entry_date.join('-')
   statement.push(cells)
 }
 
-# get the order right
+# sort the statement
 statement.reverse!
 
 # header
 puts ['Date','Reference','Amount','Balance',].join(',')
 
-# sort the statement
 statement.each_with_index {| cells, i |
   # Set the running total
   if total
