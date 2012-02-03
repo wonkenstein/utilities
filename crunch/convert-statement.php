@@ -2,9 +2,11 @@
 /**
  * PHP script convert a santander csv statement into a format
  * to be imported into crunch.co.uk accounting system
+ * Don't need to manipulate the statement
+ * Download and convert it
  *
  * Usage:
- * php convert-statement.php statements/2011-10.csv > converted.csv
+ * php convert-statement.php statements/2011-10.csv [start-amount] > converted.csv
  */
 
 $file = $argv[1];
@@ -17,14 +19,15 @@ if (!file_exists($file)) {
 
 $file_contents = file_get_contents($file);
 $file_contents = explode("\n", $file_contents);
-array_pop($file_contents); // remove the last line
 
 $results = array();
 foreach ($file_contents as $line) {
 
   $line = explode(',', $line);
-  array_shift($line); // Don't want first cell as rubbish
-  $results[] = $line;
+  if (count($line) > 1) { // check more than one cell -> not last line
+    array_shift($line); // Don't want first cell as rubbish
+    $results[] = $line;
+  }
 }
 
 // sort into order we want
@@ -43,9 +46,7 @@ echo implode(',', $headers), "\n";
 foreach ($results as $i => $cells) {
   // calculate the running totals
   if ($total) {
-    if ($i) {
-      $total += $cells[2];
-    }
+    $total += $cells[2];
     $cells[] = $total;
   }
   echo implode(',', $cells), "\n";
