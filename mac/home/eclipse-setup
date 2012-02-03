@@ -1,0 +1,60 @@
+Eclipse for PHP Developers
+General > Appearance
+  Default (current)
+  Show Traditional style tabs = 1
+  Enable animations = 0
+
+General > Keys
+  Scheme = Emacs
+
+General > Editors > Text Editors
+  Displayed tab width = 2
+  highlight current line = 1
+  insert spaces for tabs = 1
+  Show line numbers = 1
+  
+General > Workspace
+  Text file encoding = UTF-8
+
+JavaScript > Code Style > Formatter
+  New profile 'wonks', init with 'Eclipse [built in]' profile
+    Indentation:
+      Tab policy = Spaces only
+      Indentation size = 2
+      Tab size = 2
+    
+      Indent:
+        Statements within function body = 1
+        Statements within blocks = 1
+        Statements within 'switch' body = 1
+        Statements within 'case' body = 1
+        'break' statements = 1
+
+    Control Statments:
+      insert new line before 'else' in an 'if' statement = 1
+      insert new line before 'catch' in a 'try' statement = 1
+      insert new line before 'finally' in a 'try' statement = 1
+      insert new line before 'while' in a 'do' statement = 1
+
+PHP > Code Style > Formatter
+  Tab Policy = Spaces
+  Indentation size = 2
+
+PHP > Editor > Save Actions
+  Remove trailing whitespace = All Lines
+
+Web > CSS Files > Editor
+  Indent using spaces = 1
+  Indentation size = 2
+
+Web > HTML Files > Editor
+  Indent using spaces = 1
+  Indentation size = 2
+
+XML > XML Files > Editor
+  Indent using spaces = 1
+  Indentation size = 2
+  Clear all blank lines
+
+RUBY SETUP
+  Dynamic Languages Toolkit - Ruby Development Tools
