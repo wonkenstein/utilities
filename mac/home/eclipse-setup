@@ -6,6 +6,8 @@ General > Appearance
 
 General > Keys
   Scheme = Emacs
+  Refresh
+    Binding = Apple+R // F5 doesn't work on laptop
 
 General > Editors > Text Editors
   Displayed tab width = 2
