@@ -1,0 +1,19 @@
+<VirtualHost *:80>
+  # http://www.unix-girl.com/geeknotes/apache_virtual_host_conf.html
+  ServerAdmin mail@example.com
+  DocumentRoot "[DocumentRoot]"
+  ServerName domain.localhost
+  ErrorLog "logs/domain.locahost-error_log"
+  CustomLog "logs/domain.localhost-access_log" common
+    
+  <Directory [DocumentRoot]>    
+    #Options            Indexes FollowSymLinks
+    #AllowOverride      All
+    #Order              allow,deny
+    #Allow              from all
+  </Directory>
+    
+  # AddHandler application/x-httpd-php .html # Parse .html as .php
+  # AddDefaultCharset utf-8 # serve as utf-8
+    
+</VirtualHost>  
