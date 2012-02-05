@@ -1,0 +1,45 @@
+Install the MAMP directory into Applications
+
+APACHE
+Edit MAMP Apache Setup 
+* /Applications/MAMP/conf/apache/http.conf
+* Enable vhosts in conf file by uncommenting line
+  # Virtual hosts                                                                                     
+  Include /Applications/MAMP/conf/apache/extra/httpd-vhosts.conf
+
+Set up vhost files so we can create one vhost.conf file per vhost and get
+included by apache automatically
+* mkdir /Applications/MAMP/conf/apache/extra/vhost 
+ * This is where the vhost files will live
+* In default vhost file add following line to end of it so conf files get 
+included by apache automatically
+  Include /Applications/MAMP/conf/apache/extra/vhost/*.conf
+* touch vhost/localhost.conf and add the following contents
+<VirtualHost *:80>
+    ServerAdmin mail@example.com
+    DocumentRoot "[DocumentRoot]"
+    ServerName localhost
+    ErrorLog "logs/locahost-error_log"
+    CustomLog "logs/localhost-access_log" common
+</VirtualHost>  
+
+* Restart MAMP
+* Go to http://localhost in browser and check it's viewable 
+
+MYSQL
+/Applications/MAMP/Library/bin/mysql
+
+my.cnf
+http://www.drupalcoder.com/blog/create-mysql-configuration-file-mycnf-on-mamp
+sudo cp /Applications/MAMP/Library/share/mysql/my-medium.cnf /Applications/MAMP/Library/my.cnf
+
+http://stackoverflow.com/questions/678645/does-mysql-included-with-mamp-not-include-a-config-file
+
+
+PHP 
+/Applications/MAMP/bin/php/php5.3.6/conf/php.ini
+
+Extensions
+http://www.lullabot.com/articles/installing-php-pear-and-pecl-extensions-on-mamp-mac-os-x-107-lion
+http://steindom.com/articles/compiling-php-memcache-extension-mamp-195
+http://www.re-cycledair.com/installing-memcache-on-mamp
