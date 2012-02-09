@@ -40,6 +40,17 @@ else {
   }
 }
 
+// check to see if doc root exists
+$filepath = $DOC_ROOT . '/' . $settings['doc_root'];
+if (!file_exists($filepath))  {
+  echo "Doc root does not exist! Create?";
+  $create_dir = trim(fgets(STDIN));
+  if (strtolower($create_dir) == 'yes') {
+    mkdir($filepath);
+    chown($filepath, $USER); // change owner to default user
+    echo "Created directory $filepath\n";
+  }
+}
 
 
 // copy the vhosts
