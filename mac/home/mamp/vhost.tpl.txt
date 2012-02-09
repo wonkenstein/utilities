@@ -1,12 +1,12 @@
 <VirtualHost *:80>
   # http://www.unix-girl.com/geeknotes/apache_virtual_host_conf.html
-  ServerAdmin mail@example.com
-  DocumentRoot "[DocumentRoot]"
-  ServerName domain.localhost
-  ErrorLog "logs/domain.locahost-error_log"
-  CustomLog "logs/domain.localhost-access_log" common
+  ServerAdmin [EMAIL]
+  DocumentRoot "[DOCUMENT_ROOT]"
+  ServerName [DOMAIN]
+  ErrorLog "logs/[DOMAIN]-error_log"
+  CustomLog "logs/[DOMAIN]-access_log" common
     
-  <Directory [DocumentRoot]>    
+  <Directory [DOCUMENT_ROOT]>    
     #Options            Indexes FollowSymLinks
     #AllowOverride      All
     #Order              allow,deny
