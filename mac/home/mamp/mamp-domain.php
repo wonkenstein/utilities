@@ -1,8 +1,11 @@
 <?php
 /**
+ * Running MAMP which has php, should be able to be ported to WAMP or XAMPP
+ *
  * Run as sudo
- * PHP script as running MAMP which has php, should be able to be ported to
- * WAMP or XAMPP
+ * Creates host entry
+ * Creates doc root id it doesn't exist
+ * Creates conf file in MAMP vhosts directory
  */
 $MAMP_ROOT = '/Applications/MAMP';
 $DOC_ROOT = '/Users/markwong/workspace';
@@ -89,6 +92,7 @@ else {
   $write = true;
 }
 
+
 if ($write) {
   $res = file_put_contents($filepath, $vhost);
 
@@ -102,6 +106,7 @@ if ($write) {
 }
 
 
+echo "FINISH\n";
 //
 function set_setting(&$setting, $fieldname) {
   echo "Enter $fieldname: ";
