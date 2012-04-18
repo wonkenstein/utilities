@@ -3,6 +3,7 @@ Install the MAMP directory into Applications
 APACHE
 Edit MAMP Apache Setup 
 * /Applications/MAMP/conf/apache/http.conf
+* Check mod_rewrite module is on
 * Enable vhosts in conf file by uncommenting line
   # Virtual hosts                                                                                     
   Include /Applications/MAMP/conf/apache/extra/httpd-vhosts.conf
@@ -39,7 +40,17 @@ http://stackoverflow.com/questions/678645/does-mysql-included-with-mamp-not-incl
 PHP 
 /Applications/MAMP/bin/php/php5.3.6/conf/php.ini
 
+php.ini Set the following
+* display_errors = On
+
+
 Extensions
 http://www.lullabot.com/articles/installing-php-pear-and-pecl-extensions-on-mamp-mac-os-x-107-lion
 http://steindom.com/articles/compiling-php-memcache-extension-mamp-195
 http://www.re-cycledair.com/installing-memcache-on-mamp
+
+Drush
+Drush seems to expect mysql.sock to be at /var/mysql/mysql.sock. 
+We need to symlink this to the MAMP mysql.sock
+sudo ln -s /Applications/MAMP/tmp/mysql/mysql.sock /var/mysql/mysql.sock
+
