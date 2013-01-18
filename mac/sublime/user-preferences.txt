@@ -1,0 +1,15 @@
+{
+	"color_scheme": "Packages/Color Scheme - Default/Blackboard.tmTheme",
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"theme": "Wonks.sublime-theme",
+	"rulers": [80],
+	"trim_trailing_white_space_on_save": true,
+	"ensure_newline_at_eof_on_save": true,
+	"default_encoding": "UTF-8",
+  "preview_on_click": false,
+	"tab_size": 2
+
+}
