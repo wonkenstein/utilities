@@ -9,7 +9,11 @@
 	"trim_trailing_white_space_on_save": true,
 	"ensure_newline_at_eof_on_save": true,
 	"default_encoding": "UTF-8",
-  "preview_on_click": false,
+	"preview_on_click": false,
+	"draw_white_space": "all",
+	"open_files_in_new_window": false,
+	"word_wrap": "false",
+	"wrap_width": 0,
 	"tab_size": 2
 
 }
