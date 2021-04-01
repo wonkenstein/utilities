@@ -1,0 +1,8 @@
+docker ps --all
+docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.RunningFor}}"
+
+docker container start 
+
+docker exec -it 589fe17c1e1b /bin/bash
+
+docker exec -d 7936df35678a mysql -uroot -p test < 001_fusion_db_migration.sql

@@ -1,0 +1,10 @@
+exec git commit --amend --no-edit --date "Tue Nov 10 12:49:53 2020 +0000"
+exec git commit --amend --no-edit --date "Wed Jun 03 09:52:14 2020 +0100"
+exec git commit --amend --author="Author Name <author@example.com>" --no-edit
+
+git log --oneline
+
+git commit --amend --author="Author Name <author@example.com" --no-edit
+
+git reset --hard origin/master
+
